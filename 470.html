@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            color: #555;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px 0;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Portal</h1>
+        
+        <!-- Payslip Section -->
+        <div class="section">
+            <h2>Payslip</h2>
+            <a href="payslip.pdf" class="btn" download>Download Payslip (PDF)</a>
+        </div>
+
+        <!-- Holiday and Leave Section -->
+        <div class="section">
+            <h2>Holidays and Leave</h2>
+            <p>Remaining Holidays: <strong>10</strong></p>
+            <form action="/apply-leave" method="POST">
+                <div class="form-group">
+                    <label for="leaveType">Type of Leave:</label>
+                    <select id="leaveType" name="leaveType">
+                        <option value="emergency">Emergency Leave</option>
+                        <option value="holiday">Holiday</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="leaveReason">Reason:</label>
+                    <textarea id="leaveReason" name="leaveReason" placeholder="Enter reason for leave"></textarea>
+                </div>
+                <button type="submit" class="btn">Apply for Leave</button>
+            </form>
+        </div>
+
+        <!-- Complaints Section -->
+        <div class="section">
+            <h2>Complaints</h2>
+            <form action="/submit-complaint" method="POST">
+                <div class="form-group">
+                    <label for="complaint">Your Complaint:</label>
+                    <textarea id="complaint" name="complaint" placeholder="Enter your complaint"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Complaint</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
