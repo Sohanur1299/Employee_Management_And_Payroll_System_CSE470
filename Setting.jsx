@@ -1,8 +1,12 @@
 // src/components/forms/DepartmentForm.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useAuth } from "../../context/authContext";
+
 const Setting = () => {
   const navigate = useNavigate();
+  const { user } = useAuth()
     const [setting, setSetting] = useState({
     userId: user._id,
     oldPassword: "",
