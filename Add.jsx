@@ -9,6 +9,9 @@ const Add = () => {
     const [leave, setLeave] = useState({
         userId: user._id,
     })
+
+    const navigate = useNavigate()
+
   const handleChange = (e) => {
     const {name, value} = e.target
     setLeave((prevState) => ({...prevState, [name] : value}))
@@ -26,6 +29,15 @@ const Add = () => {
             },
           }
         );
+        if (response.data.success) {
+          navigate(`/employee-dashboard/leaves/${user._id}`)
+        }
+      } catch (error) {
+        if (error.response && !error.response.data.success) {
+          alert(error.response.data.error);
+        }
+      }
+  }
 
   return (
     <div className="max-w-4xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md">
@@ -103,3 +115,4 @@ const Add = () => {
 };
 
 export default Add;
+
